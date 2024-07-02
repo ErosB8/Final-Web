@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body{
+    background-color: #FAFAFA;
+    text-justify: auto;
+    color: #121212;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+}
+#inh1{
+    font-size: 4em;
+    color: rgb(32, 32, 32);
+    margin-top: 10px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+#inp{
+    font-size: 2em;
+    color: rgb(32, 32, 32);
+    margin: 0px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.mb20px{
+    margin-bottom: 20px;
+}
+.mt25px{
+    margin-top: 25px;
+}
+.navbar{
+    background-color: #121212;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+}
+.navbar a:hover {
+    text-decoration: solid;
+    color: gray;
+}
+.navbar a {
+    color: white;
+    text-align: center;
+    font-size: 1.3em;
+}
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 25px;
+    padding-left: 25px;
+}
+.me-auto {
+    margin-right: auto;
+    margin-left: auto;
+}
+#manzanita{
+    margin-right: 45px;
+}
+.por100 {
+    width: 100%;
+    height: 100%;
+}
+.padd10{
+    padding-top: 10px;
+}
+.marg10{
+    margin-bottom: 15px;
+}
+.centrado{
+    display: flex;
+    justify-content: center;
+}
+
+
+#apch1{
+    font-weight: 1000;
+    margin-top: 80px;
+    font-size: 4em;
+    text-align: center;
+}
+#apch2{
+    font-weight: 1000;
+    margin-top: 10px;
+    font-size: 3em;
+    text-align: center;
+}
+.pap{
+    text-align: center;
+    width: 800px;
+    font-size: 1.3em;
+}
+.bap{
+    background-color: #2a74fc;
+    color: white;
+    font-size: 1.3em;
+    border-radius: 30px;
+    border-color: #2a74fc;
+    padding-right: 8px;
+    padding-left: 8px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.vbap{
+    color: white;
+    text-decoration: none;
+}
+.hov a:hover{
+    color: black;
+}
+.rad{
+    border-radius: 50px;
+    padding: 20px;
+}
+
+
+.mainc{
+    background-color: black;
+    width: 100%;
+    height: 100%;
+}
+form{
+    color: white;
+    margin-top: 20px;
+    background-color: #121212;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 20px;
+}
+#res{
+    margin-left: 10px;
+}
+aside{
+    color: rgb(255, 255, 255);
+    padding: 60px;
+}
+.padd30{
+    padding-bottom: 40px;
+}
+#assc{
+    background-color: black;
+}
+#h1c{
+    margin-top: 20px;
+    color: white;
+}
+#letrasenvio{
+    color: white;
+}
+
+
+#imgn{
+    margin-top: 10px;
+    padding-top: 30px;
+}
+#mainn{
+    background-color: black;
+    color: white;
+}
+
+#hpa{
+    color: white;
+    font-size: 2.2em;
+    font-weight: 1000;
+    margin: 0;
+}
+.pame{
+    font-size: 1.4em;
+    font-weight: 1000;
+    color: #000000;
+}
+.border {
+    border: var(--bs-border-width) var(--bs-border-style) #a7a7a7!important;
+    padding: 10px;
+    color: #000000;
+}
+.formpanel{
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    border-radius: 0;
+    margin-top: 0;
+}
+.mainpanel{
+    background-color: rgb(255, 255, 255);
+}
+
+
+footer {
+    background-color: #121212;
+    color: rgb(165, 165, 165);
+    height: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+}
+footer p{
+    padding-top: 4px;
+    padding-left: 5px;
+}
+
+#fieldset{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row>* {
+    padding-left: 0;
+}
+
