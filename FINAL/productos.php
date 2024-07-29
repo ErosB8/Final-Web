@@ -20,13 +20,17 @@
             while ($row =  mysqli_fetch_array($respuesta)) {
                 print "
                         <div class='col-4'>
-                            <h2 class='centrado mt25px'><strong>$row[nombre]</strong></h2>
-                            <p class=centrado><strong>Color</strong>: $row[color]</p>
-                            <p class=centrado><strong>Precio</strong>: $row[precio]</p>
-                            <div class=row>
-                                <div class='col centrado'>
-                                    <img class='mb20px' width=300 heigth=300 src=imgbbdd/$row[foto] alt=$row[nombre] />
-                                </div>    
+                            <div class='productos'>
+                                <div class=row>
+                                    <div class='col centrado mt25px'>
+                                        <img width=150 heigth=150 src=imgbbdd/$row[foto] alt=$row[nombre] />
+                                    </div>    
+                                </div>
+                                <div class='fondo-productos'>
+                                    <h2 class='centrado-productos'><strong>$row[nombre]</strong></h2>
+                                    <p class='centrado-productos'><strong>Color</strong>: $row[color]</p>
+                                    <p class='centrado-productos'><strong>Precio</strong>: $row[precio]</p>
+                                </div>
                             </div>
                         </div>
             ";
