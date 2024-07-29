@@ -16,7 +16,7 @@ if($conexion){
         header("Location: ../panel/index.php");
     }else{
         $_SESSION = $filas;
-        header("Location: ../session/index.php");
+        header("Location: ../index.php");
     }
 
     if($filas == NULL){
