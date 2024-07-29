@@ -50,7 +50,7 @@
                         
                         if (move_uploaded_file($temp, "recibido/$carga")) {
                             
-                            $sql = "INSERT INTO contactos (nombre, apellido, mail, problema, carga) VALUES ('$nombre', '$apellido', '$mail', '$problema', '$carga')";
+                            $sql = "INSERT INTO contacto (nombre, apellido, mail, problema, carga) VALUES ('$nombre', '$apellido', '$mail', '$problema', '$carga')";
                             if (mysqli_query($conexion, $sql)) {
                                 echo "¡Datos enviados exitosamente!";
                             } else {
