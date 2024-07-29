@@ -8,6 +8,14 @@
     <title>Apple</title>
 </head>
 <body>
+    <?php
+    if (empty($_SESSION)) {
+        $usuario = false;
+        unset($_SESSION);
+    } else {
+        $usuario = $_SESSION;
+    }
+    ?>
     <header>
         <?php
             $secciones = array();
@@ -31,9 +39,18 @@
                         ?>
                     </ul>
                 </div>
-                <div>
-                    <a class='nav-link' href="login.php">Iniciar sesión</a>
-                </div>
+                <?php
+                    if ($usuario) {
+                        echo "
+                        
+                        ";
+                    } else {
+                        echo "<div>
+                                <a class='nav-link' href='login.php'>Iniciar sesión</a>
+                            </div>";
+                    }
+                ?>
+                
             </div>
         </nav>
     </header>
