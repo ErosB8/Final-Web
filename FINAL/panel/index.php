@@ -19,7 +19,18 @@ if($conexion != NULL){
         
     ";
 
-    $cons = "SELECT id, nombre, color, precio, foto FROM productos";
+    $cons = "SELECT 
+            producto.id, 
+            producto.nombre, 
+            producto.descripcion, 
+            producto.color, 
+            producto.precio, 
+            producto.foto, 
+            categoria.nombre AS nombre_categoria
+        FROM 
+            producto
+        INNER JOIN 
+            categoria ON producto.categoria_id = categoria.id;";
 
     $respuesta = mysqli_query($conexion,$cons);
 
@@ -30,9 +41,11 @@ if($conexion != NULL){
                 <tr>
                     <th class='border'>id</th>
                     <th class='border'>Nombre</th>
+                    <th class='border'>Descripción</th>
                     <th class='border'>Color</th>
                     <th class='border'>Precio</th>
                     <th class='border'>Foto</th>
+                    <th class='border'>Categoría</th>
                     <th class='border'>Modificar</th>
                     <th class='border'>Eliminar</th>
                 </tr>    
@@ -44,9 +57,11 @@ if($conexion != NULL){
             <tr>
                 <td class='border'>$row[id]</td>
                 <td class='border'>$row[nombre]</td>
+                <td class='border'>$row[descripcion]</td>
                 <td class='border'>$row[color]</td>
                 <td class='border'>$row[precio]</td>
                 <td class='border'>$row[foto]</td>
+                <td class='border'>$row[nombre_categoria]</td>
                 <td class='border'><a href=modificar.php?id=$row[id] >Modificar</a></td>
                 <td class='border'><a href=borrar.php?id=$row[id]>Eliminar</a></td> 
             </tr>

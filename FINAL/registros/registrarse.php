@@ -9,7 +9,7 @@ if($conexion){
     $contraseña1=$_POST['contraseña1'];
 
     if($contraseña===$contraseña1){
-        $consulta = "INSERT INTO usuarios SET EMAIL='$email', USUARIO='$usuario', CONTRASEÑA=MD5('$contraseña'), NIVEL='Usuario', ESTADO='Activo'";
+        $consulta = "INSERT INTO usuario SET nombre='$usuario', correo='$email', contrasena=MD5('$contraseña'), estado_id='2'";
     
         mysqli_query($conexion,$consulta);
         

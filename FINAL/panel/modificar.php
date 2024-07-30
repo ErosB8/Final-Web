@@ -9,7 +9,7 @@ if($conexion != NULL){
 
     }
     
-    $cons= "SELECT id, nombre, color, precio, foto FROM productos WHERE id='$id'"; 
+    $cons= "SELECT id, nombre, descripcion, color, precio, foto, categoria_id FROM producto WHERE id='$id'"; 
 
     $respuesta= mysqli_query($conexion,$cons);
 

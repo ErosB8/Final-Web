@@ -45,14 +45,14 @@
                         }
                         ?>
                         <div>
-                            <label for="email" >E-mail</label>
-                            </br>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div>
                             <label for="usuario" >Nombre de usuario</label>
                             </br>
                             <input type="text" id="usuario" name="usuario" required>
+                        </div>
+                        <div>
+                            <label for="email" >E-mail</label>
+                            </br>
+                            <input type="email" id="email" name="email" required>
                         </div>
                         <div>
                             <label for="contraseña" >Contraseña</label>

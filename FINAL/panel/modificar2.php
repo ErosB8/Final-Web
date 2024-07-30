@@ -15,7 +15,7 @@ if($conexion != NULL){
 
         $nuevonombre=$_GET['nombre'];
     }
-    $cons= "UPDATE productos SET nombre='$nuevonombre' WHERE id='$id' "; 
+    $cons= "UPDATE producto SET nombre='$nuevonombre' WHERE id='$id' "; 
     $respuesta= mysqli_query($conexion,$cons);
     if($respuesta){
         print "     
@@ -30,7 +30,7 @@ if($conexion != NULL){
 
         $nuevocolor=$_GET['color'];
     }
-    $cons= "UPDATE productos SET color='$nuevocolor' WHERE id='$id' "; 
+    $cons= "UPDATE producto SET color='$nuevocolor' WHERE id='$id' "; 
     $respuesta= mysqli_query($conexion,$cons);
     if($respuesta){
         print "  
@@ -45,7 +45,7 @@ if($conexion != NULL){
 
         $nuevoprecio=$_GET['precio'];
     }
-    $cons= "UPDATE productos SET precio='$nuevoprecio' WHERE id='$id' "; 
+    $cons= "UPDATE producto SET precio='$nuevoprecio' WHERE id='$id' "; 
     $respuesta= mysqli_query($conexion,$cons);
     if($respuesta){
         print " 
