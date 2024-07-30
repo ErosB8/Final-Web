@@ -15,7 +15,7 @@ if($conexion != NULL){
 
         $nuevonivel=$_GET['NIVEL'];
     }
-    $cons= "UPDATE usuarios SET NIVEL='$nuevonivel' WHERE ID='$id' "; 
+    $cons= "UPDATE usuario SET NIVEL='$nuevonivel' WHERE ID='$id' "; 
     $respuesta= mysqli_query($conexion,$cons);
     if($respuesta){
         print "     
@@ -30,7 +30,7 @@ if($conexion != NULL){
 
         $nuevoestado=$_GET['ESTADO'];
     }
-    $cons= "UPDATE usuarios SET ESTADO='$nuevoestado' WHERE ID='$id' "; 
+    $cons= "UPDATE usuario SET ESTADO='$nuevoestado' WHERE ID='$id' "; 
     $respuesta= mysqli_query($conexion,$cons);
     if($respuesta){
         print "  

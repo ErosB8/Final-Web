@@ -18,7 +18,10 @@ if($conexion != NULL){
         
     ";
 
-    $cons = "SELECT * FROM usuarios";
+    $cons = "
+    SELECT usuario.id, usuario.correo, usuario.nombre, usuario.contrasena, estado.nombre AS nombre_estado 
+    FROM usuario 
+    INNER JOIN estado ON usuario.estado_id = estado.id";
 
     $respuesta = mysqli_query($conexion,$cons);
 
@@ -31,8 +34,9 @@ if($conexion != NULL){
                     <th class='border'>EMAIL</th>
                     <th class='border'>USUARIO</th>
                     <th class='border'>CONTRASEÑA</th>
-                    <th class='border'>NIVEL</th>
                     <th class='border'>ESTADO</th>
+                    <th class='border'>MODIFICAR</th>
+                    <th class='border'>ELIMINAR</th>
                 </tr>    
     ";
 
@@ -40,13 +44,13 @@ if($conexion != NULL){
         print "
             
             <tr>
-                <td class='border'>$row[ID]</td>
-                <td class='border'>$row[EMAIL]</td>
-                <td class='border'>$row[USUARIO]</td>
-                <td class='border'>$row[CONTRASEÑA]</td>
-                <td class='border'>$row[NIVEL]</td>
-                <td class='border'>$row[ESTADO]</td>
-                <td class='border'><a href='modificarusuario.php?id=$row[ID]'>Modificar</a></td>
+                <td class='border'>$row[id]</td>
+                <td class='border'>$row[correo]</td>
+                <td class='border'>$row[nombre]</td>
+                <td class='border'>$row[contrasena]</td>
+                <td class='border'>$row[nombre_estado]</td>
+                <td class='border'><a href='modificarusuario.php?id=$row[id]'>Modificar</a></td>
+                <td class='border'><a href='eliminarusuario.php?id=$row[id]'>Eliminar</a></td>
             </tr>
        ";
     }
