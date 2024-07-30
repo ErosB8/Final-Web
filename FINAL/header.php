@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,11 +12,12 @@
 </head>
 <body>
     <?php
-    if (empty($_SESSION)) {
+    
+    if (empty($_SESSION['usuario']) || isset($_GET['accion'])) {
         $usuario = false;
-        unset($_SESSION);
+        session_destroy();
     } else {
-        $usuario = $_SESSION;
+        $usuario = $_SESSION['usuario'];
     }
     ?>
     <header>
@@ -42,7 +46,8 @@
                 <?php
                     if ($usuario) {
                         echo "
-                        
+                            <a class='nav-link' href='registros/logout.php'>Cerrar sesión</a>
+                            <a class='nav-link' href='carrito.php'>Carrito</a>
                         ";
                     } else {
                         echo "<div>

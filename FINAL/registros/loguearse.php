@@ -11,23 +11,24 @@ if($conexion){
     $resultado=mysqli_query($conexion,$consulta);
     $filas = mysqli_fetch_array($resultado);
 
-    if($filas['NIVEL'] == 'Admin'){
-        $_SESSION = $filas;
-        header("Location: ../panel/index.php");
-    }else{
-        session_start();
-        $_SESSION = $filas;
-        header("Location: ../index.php");
-    }
+    if($filas) {
+        if($filas['NIVEL'] == 'Admin'){
+            session_start();
+            $_SESSION['usuario'] = $filas;
+            header("Location: ../panel/index.php");
+        } else {
+            session_start();
+            $_SESSION['usuario'] = $filas;
+            header("Location: ../index.php");
+        }
 
-    if($filas == NULL){
+        if($filas['ESTADO'] == 'Ban'){
+            header("Location: ../login.php?Ban=ok");
+        }
+    } else {
         header("Location: ../login.php?noexiste=ok");
     }
 
-    if($filas['ESTADO'] == 'Ban'){
-        header("Location: ../login.php?Ban=ok");
-
-    }
 
     
 
