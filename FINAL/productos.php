@@ -3,10 +3,6 @@
     require_once("conexion.php");
 ?>
     <main class="mt25px">
-        <div class="centrado">
-            
-        </div>
-        
         <div class="container-fluid">
             <?php
             if($conexion != NULL){
@@ -31,6 +27,10 @@
                                     <p class='centrado-productos'><strong>Descripcion</strong>: $row[descripcion]</p>
                                     <p class='centrado-productos'><strong>Color</strong>: $row[color]</p>
                                     <p class='centrado-productos'><strong>Precio</strong>: $$row[precio]</p>
+                                    <form action='agregarcarrito.php' method='POST'>
+                                        <input type='hidden' name='id' value='$row[id]' />
+                                        <button type='submit'>Agregar al carrito</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
