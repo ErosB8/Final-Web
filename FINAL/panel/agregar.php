@@ -3,17 +3,20 @@ require_once("../registros/admin.php");
 require_once("../conexion.php");
 include_once("headerpanel.php");
 if($conexion != NULL){
-    if(isset($_POST['nom']) and isset($_POST['pre']) and isset($_POST['color']) ){
+    if(isset($_POST['nom']) and isset($_POST['desc']) and isset($_POST['color']) and isset($_POST['pre']) and isset($_POST['cat'])){
         $nombre = $_POST['nom'];
+        $descripcion = $_POST['desc'];
         $color = $_POST['color'];
         $precio = $_POST['pre'];
+        $categoria = $_POST['cat'];
+        
 
         $hora = time();
         $foto = $hora.'.jpg';
         move_uploaded_file($_FILES ['arch']['tmp_name'], "../imgbbdd/$foto");
 
 
-    $cons = "INSERT INTO productos(nombre, color, precio, foto) VALUES ('$nombre','$color','$precio', '$foto')";
+    $cons = "INSERT INTO producto(nombre, descripcion, color, precio, categoria_id, foto) VALUES ('$nombre', '$descripcion','$color','$precio', '$categoria', '$foto')";
     
 
     $respuesta = mysqli_query($conexion,$cons);

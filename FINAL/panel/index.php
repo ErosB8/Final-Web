@@ -96,12 +96,33 @@ if($conexion != NULL){
                 <input id="nom" name="nom" class="form-control" type="text" required/>
             </div>
             <div class="mb-3">
+                <label for="desc" class="form-label">Descripción:</label>
+                <textarea id="desc" name="desc" class="form-control" type="text" required> </textarea>
+            </div>
+            <div class="mb-3">
                 <label for="color" class="form-label">Color:</label>
                 <input id="color" name="color" class="form-control" type="text" required/>
             </div>
             <div class="mb-3">
                 <label for="pre" class="form-label">Precio:</label>
                 <input id="pre" name="pre" class="form-control" type="number" required/>
+            </div>
+            <div class="mb-3">
+                <label for="cat" class="form-label">Categoría:</label>
+                <select id="cat" name="cat" class="form-select" required>
+                    <option>Seleccione una categoría</option>
+                    <?php
+                    $sql = "SELECT id, nombre FROM categoria";
+                    $result = $conexion->query($sql);
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                        echo "<option value='" . $row['id'] . "'>" . $row['nombre'] . "</option>";
+                        }
+                    } else {
+                        echo "<option value=''>No hay categorías disponibles</option>";
+                    }
+                    ?>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="arch" class="form-label">Cargar imagen:</label>
