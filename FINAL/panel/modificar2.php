@@ -1,8 +1,9 @@
 <?php
 require_once("../registros/admin.php");
 require_once("../conexion.php");
-include_once("headerpanel.php");
-
+print "
+<div class='mx-auto mb-5' style='max-width: 600px;'>
+    <div class='card-body'>";
 if($conexion != NULL){
     if(isset($_GET['id'])){
 
@@ -20,7 +21,10 @@ if($conexion != NULL){
     if($respuesta){
         print "     
         <div class='centrado'>
-            <h2>El nombre fue modificado por <strong>$nuevonombre</strong></h2>
+            <p>El nombre fue modificado por:</p>
+        </div>
+        <div class='centrado'>
+            <p><strong>$nuevonombre</strong></p>
         </div>
     "; 
     }
@@ -34,7 +38,10 @@ if($conexion != NULL){
     if($respuesta){
         print "     
         <div class='centrado'>
-            <h2>La descripción fue modificada por <strong>$nuevadesc</strong></h2>
+            <p>La descripción fue modificada por:</p>
+        </div>
+        <div class='centrado'>
+            <p><strong>$nuevadesc</strong></p>
         </div>
     "; 
     }
@@ -49,7 +56,10 @@ if($conexion != NULL){
     if($respuesta){
         print "  
         <div class='centrado'>
-            <h2>El color fue modificado por <strong>$nuevocolor</strong></h2>
+            <p>El color fue modificado por:</p>
+        </div>
+        <div class='centrado'>
+            <p><strong>$nuevocolor</strong></p>
         </div>
         ";
     }
@@ -64,7 +74,10 @@ if($conexion != NULL){
     if($respuesta){
         print " 
         <div class='centrado'>
-            <h2>El precio fue modificado por <strong>$nuevoprecio</strong></h2>
+            <p>El precio fue modificado por:</p>
+        </div>
+        <div class='centrado'>
+            <p><strong>$nuevoprecio</strong></p>
         </div>
         ";
     }
@@ -83,7 +96,26 @@ if($conexion != NULL){
         }
         print "  
         <div class='centrado'>
-            <h2>La categoría fue modificada por <strong>$nuevacat</strong></h2>
+            <p>La categoría fue modificada por:</p>
+        </div>
+        <div class='centrado'>
+            <p><strong>$nuevacat</strong></p>
+        </div>
+        ";
+    }
+
+    if(isset($_GET['arch'])){
+        $nuevaimg=$_GET['arch'];
+    }
+    $cons= "UPDATE producto SET foto='$nuevaimg' WHERE id='$id' "; 
+    $respuesta= mysqli_query($conexion,$cons);
+    if($respuesta){
+        print " 
+        <div class='centrado'>
+            <p>La foto fue modificada por:</p>
+        </div>
+        <div class='centrado'>
+            <img src='../imgbbdd/$nuevaimg' width=300 heigth=300>
         </div>
         ";
     }
@@ -94,5 +126,8 @@ if($conexion != NULL){
         </div>
         ";  
 }
+print "
+</div>
+    </div>";
 include_once("footerpanel.php")
 ?>

@@ -12,7 +12,8 @@
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
                 <a href="index.php"><img src="../img/manzanita.png" alt="Logo Apple" id="manzanita" width="40" height="40"></a>
-                <div class="collapse navbar-collapse">
+                <div class="collapse navbar-collapse centrado">
+                    <p id="hpa">Panel de Administrador</p>
                 </div>
                 <div>
                     <a class='nav-link' href="../registros/logout.php">Cerrar sesión</a>

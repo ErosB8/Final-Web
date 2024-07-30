@@ -1,7 +1,6 @@
 <?php
 require_once("../registros/admin.php");
 require_once("../conexion.php");
-include_once("headerpanel.php");
 if($conexion != NULL){
     print "
     <main class='container-fluid mainpanel'>
@@ -85,7 +84,7 @@ if($conexion != NULL){
 
 
 ?>
-<div class="card mx-auto mb-5" style="max-width: 600px;">
+<div class="mx-auto mb-5" style="max-width: 600px;">
     <div class="card-body">
         <form action="agregar.php" method="post" enctype="multipart/form-data">
             <div class="mb-3 text-center">
@@ -97,7 +96,7 @@ if($conexion != NULL){
             </div>
             <div class="mb-3">
                 <label for="desc" class="form-label">Descripción:</label>
-                <textarea id="desc" name="desc" class="form-control" type="text" required> </textarea>
+                <textarea id="desc" name="desc" class="form-control" type="text" rows="5" required> </textarea>
             </div>
             <div class="mb-3">
                 <label for="color" class="form-label">Color:</label>
