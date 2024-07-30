@@ -1,7 +1,6 @@
 <?php
 require_once("../registros/admin.php");
 require_once("../conexion.php");
-include_once("headerpanel.php");
 
 if($conexion != NULL){
     if(isset($_GET['ID'])){

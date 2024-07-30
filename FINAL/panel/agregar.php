@@ -1,7 +1,6 @@
 <?php
 require_once("../registros/admin.php");
 require_once("../conexion.php");
-include_once("headerpanel.php");
 if($conexion != NULL){
     if(isset($_POST['nom']) and isset($_POST['desc']) and isset($_POST['color']) and isset($_POST['pre']) and isset($_POST['cat'])){
         $nombre = $_POST['nom'];
