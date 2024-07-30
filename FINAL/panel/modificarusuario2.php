@@ -3,48 +3,30 @@ require_once("../registros/admin.php");
 require_once("../conexion.php");
 include_once("headerpanel.php");
 
-if($conexion != NULL){
-    if(isset($_GET['ID'])){
+if ($conexion != NULL) {
+    if (isset($_GET['id']) && isset($_GET['estado'])) {
+        $id = $_GET['id'];
+        $nuevoestado_id = $_GET['estado']; // Nuevo estado ID
 
-        $id=$_GET['ID'];
+        // Actualizar el estado del usuario
+        $cons = "UPDATE usuario SET estado_id='$nuevoestado_id' WHERE id='$id'";
+        $respuesta = mysqli_query($conexion, $cons);
 
+        if ($respuesta) {
+            echo "
+            <div class='centrado'>
+                <h2>El estado fue modificado.</h2>
+            </div>
+            ";
+        } else {
+            echo "Error al actualizar el estado: " . mysqli_error($conexion);
+        }
+    } else {
+        echo "Datos insuficientes para realizar la actualización.";
     }
-
-    
-    if(isset($_GET['NIVEL'])){
-
-        $nuevonivel=$_GET['NIVEL'];
-    }
-    $cons= "UPDATE usuario SET NIVEL='$nuevonivel' WHERE ID='$id' "; 
-    $respuesta= mysqli_query($conexion,$cons);
-    if($respuesta){
-        print "     
-        <div class='centrado'>
-            <h2>El NIVEL fue modificado por <strong>$nuevonivel</strong></h2>
-        </div>
-    "; 
-    }
-
-
-    if(isset($_GET['ESTADO'])){
-
-        $nuevoestado=$_GET['ESTADO'];
-    }
-    $cons= "UPDATE usuario SET ESTADO='$nuevoestado' WHERE ID='$id' "; 
-    $respuesta= mysqli_query($conexion,$cons);
-    if($respuesta){
-        print "  
-        <div class='centrado'>
-            <h2>El ESTADO fue modificado por <strong>$nuevoestado</strong></h2>
-        </div>
-        ";
-    }
-
-    print "
-        <div class='centrado'>
-            <a href=usuarios.php class='bap mb20px vbap mt25px'>Volver</a>
-        </div>
-        ";  
+} else {
+    echo "Error de conexión a la base de datos.";
 }
-include_once("footerpanel.php")
+
+include_once("footerpanel.php");
 ?>
