@@ -35,9 +35,10 @@ if($conexion != NULL){
     $respuesta = mysqli_query($conexion,$cons);
 
     
-    print "<div class='row'>
+    print "<div class='container'>
+            <div class='row'>
              <div class='col centrado'>
-                <table border=1 >
+                <table border=1 class='table table-striped'>
                 <tr>
                     <th class='border'>id</th>
                     <th class='border'>Nombre</th>
@@ -70,6 +71,7 @@ if($conexion != NULL){
 
     print "</div>
     </div>
+    </div>
     </table >
     </main>
     ";
@@ -83,49 +85,52 @@ if($conexion != NULL){
 
 
 ?>
+<div class="card mx-auto">
+    <div class="card-body ml-10 mr-10">
+        <form class="formpanel container-fluid" action="agregar.php" method="post" enctype="multipart/form-data">
+            <div class='row mb-3 form-group'>
+                <div class='col centrado'>
+                    <p class='pame'>Agregar producto</p>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col centrado">
+                    <label for="nom" class="form-label" >Nombre:</label>
+                    <input id="nom" name="nom" class="form-input" type="text" required/>
+                </div>
+            </div>
+            <div class="row mb-3 form-group">
+                <div class="col centrado">
+                <label for="color" class="form-label">Color:</label>
+                <input id="color" name="color" class="form-input" type="text" required/>
+                </div>
+            </div>
+            <div class="row mb-3 form-group">
+                <div class="col centrado">
+                <label for="pre" class="form-label">Precio:</label>
+                <input id="pre" name="pre" class="form-input" type="number" required/>
+                </div>
+            </div>
+            <div class="row mb-3 form-group">
+                <div class="col centrado">
+                    <label for="arch" class="form-label">Cargar imagen:</label>
+                </div>
+            </div>
+            <div class="row mb-3 form-group">
+                <div class="col centrado">
+                    <input id="arch" name="arch" class="form-input" type="file" required/>
+                </div>
+            </div>
+            <div class="row mb-3 form-group">
+                <div class="col centrado">
+                    <button class="bap mb20px mt25px" type="submit">Enviar</button>
+                    <button id="res" class="bap mb20px mt25px" type="reset">Reestablecer</button>
+                </div>
+            </div>
 
-<form class="formpanel container-fluid" action="agregar.php" method="post" enctype="multipart/form-data">
-    <div class='row'>
-        <div class='col centrado'>
-            <p class='pame'>Agregar producto</p>
-        </div>
+        </form>
     </div>
-    <div class="row">
-        <div class="col centrado">
-            <label for="nom" >Nombre:</label>
-            <input id="nom" name="nom"  type="text" required/>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col centrado">
-        <label for="color" >Color:</label>
-        <input id="color" name="color"  type="text" required/>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col centrado">
-        <label for="pre" >Precio:</label>
-        <input id="pre" name="pre"  type="number" required/>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col centrado">
-            <label for="arch" >Cargar imagen:</label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col centrado">
-            <input id="arch" name="arch"  type="file" required/>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col centrado">
-            <button class="bap mb20px mt25px" type="submit">Enviar</button>
-            <button id="res" class="bap mb20px mt25px" type="reset">Reestablecer</button>
-        </div>
-    </div>
-
-</form>
+</div>
 
 <?php
     include_once("footerpanel.php")
