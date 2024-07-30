@@ -27,9 +27,9 @@
                                     <p class='centrado-productos'><strong>Descripcion</strong>: $row[descripcion]</p>
                                     <p class='centrado-productos'><strong>Color</strong>: $row[color]</p>
                                     <p class='centrado-productos'><strong>Precio</strong>: $$row[precio]</p>
-                                    <form action='agregarcarrito.php' method='POST'>
+                                    <form class='boton-agregar-carrito' action='agregarcarrito.php' method='POST'>
                                         <input type='hidden' name='id' value='$row[id]' />
-                                        <button type='submit'>Agregar al carrito</button>
+                                        <button class='btn btn-primary' type='submit'>Agregar al carrito</button>
                                     </form>
                                 </div>
                             </div>

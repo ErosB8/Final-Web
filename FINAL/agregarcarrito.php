@@ -1,6 +1,7 @@
 <?php
 require_once("conexion.php");
 
+
 if ($conexion != NULL) {
     if (isset($_POST['id'])) {
         $producto_id = $_POST['id'];

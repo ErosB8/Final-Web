@@ -38,6 +38,14 @@ require_once("conexion.php");
             echo "Error al recuperar los datos del carrito: " . mysqli_error($conexion);
         }
 
+        print "
+        <div class='container'>
+            <form class='boton-vaciar-carrito' action='vaciarcarrito.php' method='POST'>
+                <button type='submit' class='btn btn-danger'>Vaciar Carrito</button>
+            </form>
+        </div>
+        ";
+
     } else {
         print "<h1>Error de conexión a la base de datos</h1>";
     }
