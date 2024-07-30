@@ -12,7 +12,7 @@
             if($conexion != NULL){
            
 
-            $cons = "SELECT id, nombre, color, precio, foto FROM productos";
+            $cons = "SELECT id, nombre, descripcion, color, precio, foto FROM producto";
 
             $respuesta = mysqli_query($conexion,$cons);
 
@@ -28,8 +28,9 @@
                                 </div>
                                 <div class='fondo-productos'>
                                     <h2 class='centrado-productos'><strong>$row[nombre]</strong></h2>
+                                    <p class='centrado-productos'><strong>Descripcion</strong>: $row[descripcion]</p>
                                     <p class='centrado-productos'><strong>Color</strong>: $row[color]</p>
-                                    <p class='centrado-productos'><strong>Precio</strong>: $row[precio]</p>
+                                    <p class='centrado-productos'><strong>Precio</strong>: $$row[precio]</p>
                                 </div>
                             </div>
                         </div>
