@@ -85,49 +85,32 @@ if($conexion != NULL){
 
 
 ?>
-<div class="card mx-auto">
-    <div class="card-body ml-10 mr-10">
-        <form class="formpanel container-fluid" action="agregar.php" method="post" enctype="multipart/form-data">
-            <div class='row mb-3 form-group'>
-                <div class='col centrado'>
-                    <p class='pame'>Agregar producto</p>
-                </div>
+<div class="card mx-auto mb-5" style="max-width: 600px;">
+    <div class="card-body">
+        <form action="agregar.php" method="post" enctype="multipart/form-data">
+            <div class="mb-3 text-center">
+                <h3>Agregar producto</h3>
             </div>
-            <div class="row mb-3">
-                <div class="col centrado">
-                    <label for="nom" class="form-label" >Nombre:</label>
-                    <input id="nom" name="nom" class="form-input" type="text" required/>
-                </div>
+            <div class="mb-3">
+                <label for="nom" class="form-label">Nombre:</label>
+                <input id="nom" name="nom" class="form-control" type="text" required/>
             </div>
-            <div class="row mb-3 form-group">
-                <div class="col centrado">
+            <div class="mb-3">
                 <label for="color" class="form-label">Color:</label>
-                <input id="color" name="color" class="form-input" type="text" required/>
-                </div>
+                <input id="color" name="color" class="form-control" type="text" required/>
             </div>
-            <div class="row mb-3 form-group">
-                <div class="col centrado">
+            <div class="mb-3">
                 <label for="pre" class="form-label">Precio:</label>
-                <input id="pre" name="pre" class="form-input" type="number" required/>
-                </div>
+                <input id="pre" name="pre" class="form-control" type="number" required/>
             </div>
-            <div class="row mb-3 form-group">
-                <div class="col centrado">
-                    <label for="arch" class="form-label">Cargar imagen:</label>
-                </div>
+            <div class="mb-3">
+                <label for="arch" class="form-label">Cargar imagen:</label>
+                <input id="arch" name="arch" class="form-control" type="file" required/>
             </div>
-            <div class="row mb-3 form-group">
-                <div class="col centrado">
-                    <input id="arch" name="arch" class="form-input" type="file" required/>
-                </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                <button class="btn btn-primary me-md-2" type="submit">Enviar</button>
+                <button id="res" class="btn btn-secondary" type="reset">Reestablecer</button>
             </div>
-            <div class="row mb-3 form-group">
-                <div class="col centrado">
-                    <button class="bap mb20px mt25px" type="submit">Enviar</button>
-                    <button id="res" class="bap mb20px mt25px" type="reset">Reestablecer</button>
-                </div>
-            </div>
-
         </form>
     </div>
 </div>

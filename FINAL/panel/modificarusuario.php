@@ -9,7 +9,7 @@ if($conexion != NULL){
 
     }
     
-    $cons= "SELECT * FROM usuarios WHERE id='$id'"; 
+    $cons= "SELECT * FROM usuario WHERE id='$id'"; 
 
     $respuesta= mysqli_query($conexion,$cons);
 
@@ -20,28 +20,18 @@ if($conexion != NULL){
             <form class='formpanel container-fluid' action=modificarusuario2.php method=get>
                 <div class='row'>
                     <div class='col centrado'>
-                        <input name=ID type=hidden value=$row[ID]/>
-                        <h1><strong>Modificar al usuario ID = $row[ID]</strong><h1>
+                        <input name=id type=hidden value=$row[id]/>
+                        <h1><strong>Modificar al usuario ID = $row[id]</strong><h1>
                     </div>
                 </div>
                 <div class='row'>
                     <div class='col centrado'>
-                        <label for=NIVEL >Modificar NIVEL (Admin/Usuario)</label> 
+                        <label for=estado >Modificar ESTADO (Admin/Usuario/Ban)</label>
                     </div>
                 </div>
                 <div class='row'>
                     <div class='col centrado'>
-                        <input id=NIVEL name=NIVEL type=text value=$row[NIVEL]>
-                    </div>
-                </div>
-                <div class='row'>
-                    <div class='col centrado'>
-                        <label for=ESTADO >Modificar ESTADO (Activo/Ban)</label>
-                    </div>
-                </div>
-                <div class='row'>
-                    <div class='col centrado'>
-                        <input id=ESTADO name=ESTADO type=text value=$row[ESTADO]>
+                        <input id=estado name=estado type=text value=$row[nombre_estado]>
                     </div>
                 </div>
                 <div class='row'>
