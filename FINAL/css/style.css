@@ -260,3 +260,7 @@ footer p{
     margin: 0px;
     padding: 0px;
 }
+.img-custom {
+    max-width: 150px; /* Ajusta el tamaño máximo de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+}

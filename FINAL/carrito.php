@@ -2,54 +2,55 @@
 include_once("header.php");
 require_once("conexion.php");
 ?>
-<main class="mt25px">
-    <div class="centrado">
-        <h3 id="titulo">Bienvenido al carrito</h3>
-    </div>
-    
-    <?php
-    if ($conexion != NULL) {
-        $consulta = "SELECT carrito.carrito_id AS carrito_id, carrito.cantidad, carrito.total_carrito, producto.nombre, producto.foto
-                    FROM carrito 
-                    JOIN producto ON carrito.id_producto = producto.id";
-        $respuesta = mysqli_query($conexion, $consulta);
-
-        if ($respuesta) {
-            print "<div class='container'>";
-            print "<div class='row'>";
-            while ($fila = mysqli_fetch_array($respuesta)) {
-                print "
-                <div class='col-4'>
-                    <div id='productos'>
-                        <article>
-                            <p>ID: $fila[carrito_id]</p>
-                            <p>Nombre: $fila[nombre]</p>
-                            <p>Foto: <img src='imgbbdd/$fila[foto]' alt='Foto del producto' width='100' height='100'></p>
-                            <p>Cantidad: $fila[cantidad]</p>
-                            <p>Total: $$fila[total_carrito]</p>
-                        </article>
-                    </div>
-                </div>
-                ";
-            }
-            print "</div>";
-            print "</div>";
-        } else {
-            echo "Error al recuperar los datos del carrito: " . mysqli_error($conexion);
-        }
-
-        print "
-        <div class='container'>
-            <form class='boton-vaciar-carrito' action='vaciarcarrito.php' method='POST'>
-                <button type='submit' class='btn btn-danger'>Vaciar Carrito</button>
-            </form>
+<main class="mt-5">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h3 id="titulo">Bienvenido al carrito</h3>
         </div>
-        ";
+        
+        <?php
+        if ($conexion != NULL) {
+            $consulta = "SELECT carrito.carrito_id AS carrito_id, carrito.cantidad, carrito.total_carrito, producto.nombre, producto.foto
+                        FROM carrito 
+                        JOIN producto ON carrito.id_producto = producto.id";
+            $respuesta = mysqli_query($conexion, $consulta);
 
-    } else {
-        print "<h1>Error de conexión a la base de datos</h1>";
-    }
-    ?>
+            if ($respuesta) {
+                echo "<div class='row'>";
+                while ($fila = mysqli_fetch_array($respuesta)) {
+                    echo "
+                    <div class='col-md-4 mb-4'>
+                        <div class='card'>
+                            <div class='d-flex justify-content-center'>
+                                <img src='imgbbdd/{$fila['foto']}' class='card-img-top img-custom' alt='Foto del producto'>
+                            </div>
+                            <div class='card-body'>
+                                <h5 class='card-title'>{$fila['nombre']}</h5>
+                                <p class='card-text'><strong>Cantidad:</strong> {$fila['cantidad']}</p>
+                                <p class='card-text'><strong>Total:</strong> $$fila[total_carrito]</p>
+                            </div>
+                        </div>
+                    </div>
+                    ";
+                }
+                echo "</div>";
+            } else {
+                echo "<div class='alert alert-danger'>Error al recuperar los datos del carrito: " . mysqli_error($conexion) . "</div>";
+            }
+
+            echo "
+            <div class='text-center mt-4'>
+                <form action='vaciarcarrito.php' method='POST'>
+                    <button type='submit' class='btn btn-danger'>Vaciar Carrito</button>
+                </form>
+            </div>
+            ";
+
+        } else {
+            echo "<div class='alert alert-danger'>Error de conexión a la base de datos</div>";
+        }
+        ?>
+    </div>
 </main>
 <?php
 include_once("footer.php");
