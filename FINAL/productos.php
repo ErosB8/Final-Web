@@ -15,7 +15,7 @@
             print "<div class='row'>";
             while ($row =  mysqli_fetch_array($respuesta)) {
                 print "
-                        <div class='col-4'>
+                        <div class='col-4 mb-10'>
                             <div class='productos'>
                                 <div class=row>
                                     <div class='col centrado mt25px'>
