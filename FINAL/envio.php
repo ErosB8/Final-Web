@@ -6,7 +6,7 @@
     <div id="letrasenvio" class="container-fluid">
         <div class="row">
             <div class="col centrado mt25px">
-                <h1>Muchas gracias!</h1>
+                <h1>¡Muchas gracias!</h1>
             </div>
         </div>
         <div class="row">
@@ -21,9 +21,8 @@
         </div>
         <div class="row">
             <div class="col"></div>
-            <div class="col">
+            <div class="col text-center">
                 <?php
-                
                     $nombre = $apellido = $mail = $problema = $carga = $temp = "";
 
                     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -43,16 +42,15 @@
                             $problema = mysqli_real_escape_string($conexion, $_POST['problema']);
                             print "<p><strong>Motivo</strong>: $problema</p>";                        
                         }
-                        
-                        
+
                         $carga = time().".jpg";
                         $temp = $_FILES['carga']['tmp_name'];
                         
                         if (move_uploaded_file($temp, "recibido/$carga")) {
+                            print "<p><strong>Imagen</strong>:</p><img class='mb20px' height='300' src='recibido/$carga' /><br>";
                             
                             $sql = "INSERT INTO contacto (nombre, apellido, mail, problema, carga) VALUES ('$nombre', '$apellido', '$mail', '$problema', '$carga')";
                             if (mysqli_query($conexion, $sql)) {
-                                echo "¡Datos enviados exitosamente!";
                             } else {
                                 echo "Error al insertar datos: " . mysqli_error($conexion);
                             }
@@ -61,7 +59,6 @@
                         }
                     }
                 ?>
-                <p><strong>Imagen</strong>:</p><img class='mb20px' src='recibido/<?php echo $carga; ?>' />
             </div>
             <div class="col"></div>
         </div>

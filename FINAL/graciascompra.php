@@ -20,7 +20,7 @@ if (session_status() == PHP_SESSION_NONE) {
     <div class="container text-center">
         <div class="card p-5 shadow-lg">
             <h3 class="mb-4">Gracias por su compra</h3>
-            <p>Gracias por elegirnos.</p>
+            <p>Se le enviará un mail con el resumen de la compra y un código de descuento para que vuelva a elegirnos</p>
             <form class="boton-volver-inicio" action="index.php" method="POST">
                 <button type="submit" class="btn btn-primary mt-3">Inicio</button>
             </form>
