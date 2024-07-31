@@ -1,6 +1,6 @@
 <?php
-include_once("header.php");
-require_once("conexion.php");
+include_once("headercarrito.php");
+require_once("../conexion.php");
 
 $consulta = "DELETE FROM carrito";
 
@@ -21,7 +21,7 @@ if (session_status() == PHP_SESSION_NONE) {
         <div class="card p-5 shadow-lg">
             <h3 class="mb-4">Gracias por su compra</h3>
             <p>Se le enviará un mail con el resumen de la compra y un código de descuento para que vuelva a elegirnos</p>
-            <form class="boton-volver-inicio" action="index.php" method="POST">
+            <form class="boton-volver-inicio" action="../index.php" method="POST">
                 <button type="submit" class="btn btn-primary mt-3">Inicio</button>
             </form>
         </div>
@@ -29,5 +29,5 @@ if (session_status() == PHP_SESSION_NONE) {
 </main>
 
 <?php
-include_once("panel/footerpanel.php")
+include_once("../panel/footerpanel.php")
 ?>

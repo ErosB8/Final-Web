@@ -28,7 +28,7 @@
 
                     if (isset($_SESSION['usuario'])) {
                         print "
-                            <form class='boton-agregar-carrito' action='agregarcarrito.php' method='POST'>
+                            <form class='boton-agregar-carrito' action='carrito/agregarcarrito.php' method='POST'>
                                 <input type='hidden' name='id' value='$row[id]' />
                                 <button class='btn btn-primary' type='submit'>Agregar al carrito</button>
                             </form>";

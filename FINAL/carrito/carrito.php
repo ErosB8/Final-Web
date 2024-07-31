@@ -1,6 +1,6 @@
 <?php
-include_once("header.php");
-require_once("conexion.php");
+include_once("headercarrito.php");
+require_once("../conexion.php");
 ?>
 <main class="mt-5">
     <div class="container">
@@ -26,7 +26,7 @@ require_once("conexion.php");
                         <div class='col-md-4 mb-4'>
                             <div class='card'>
                                 <div class='d-flex justify-content-center'>
-                                    <img src='imgbbdd/{$fila['foto']}' class='card-img-top img-custom' alt='Foto del producto'>
+                                    <img src='../imgbbdd/{$fila['foto']}' class='card-img-top img-custom' alt='Foto del producto'>
                                 </div>
                                 <div class='card-body mismo-alto'>
                                     <h5 class='card-title centrado'>{$fila['nombre']}</h5>
@@ -58,7 +58,7 @@ require_once("conexion.php");
                         </form>
                     </div>
                     <div class='col-auto'>
-                        <form class='boton-seguir-comprando' action='productos.php' method='POST'>
+                        <form class='boton-seguir-comprando' action='../productos.php' method='POST'>
                             <button type='submit' class='btn btn-secondary mx-2'>Seguir Comprando</button>
                         </form>
                     </div>
@@ -79,5 +79,5 @@ require_once("conexion.php");
 </main>
 
 <?php
-include_once("panel/footerpanel.php")
+include_once("../panel/footerpanel.php")
 ?>

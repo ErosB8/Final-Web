@@ -1,6 +1,6 @@
 <?php
-include_once("header.php");
-require_once("conexion.php");
+include_once("headercarrito.php");
+require_once("../conexion.php");
 
 // Inicializa el total a pagar
 $total_pagar = 0;
@@ -61,5 +61,5 @@ $total_pagar = 0;
 </main>
 
 <?php
-include_once("panel/footerpanel.php")
+include_once("../panel/footerpanel.php")
 ?>
