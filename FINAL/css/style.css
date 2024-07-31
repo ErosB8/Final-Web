@@ -252,10 +252,30 @@ footer p{
 }
 
 .boton-vaciar-carrito{
+    position: sticky;
     background-color: transparent;
     margin: 0px;
     padding: 0px;
 } 
+
+.boton-seguir-comprando{
+    background-color: transparent;
+    margin: 0px;
+    padding: 0px;
+}
+
+.boton-comprar{
+    background-color: transparent;
+    margin: 0px;
+    padding: 0px;
+}
+
+.boton-eliminar{
+    background-color: transparent;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+}
 
 .img-custom {
     width: auto;
