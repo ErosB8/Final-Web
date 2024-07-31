@@ -14,7 +14,7 @@ if ($conexion != NULL) {
             ?>
             <div class="mx-auto mb-5" style="max-width: 600px;">
                 <div class="card-body">
-                    <form action="modificar2.php" method="get">
+                    <form action="modificar2.php" method="post" enctype="multipart/form-data">
                         <div class='mb-3 text-center'>
                             <h3>Modificar producto</h3>
                         </div>

@@ -1,27 +1,69 @@
 <?php
 require_once("../registros/admin.php");
 require_once("../conexion.php");
-if($conexion != NULL){
-    if(isset($_GET['id'])){
 
-        $id=$_GET['id'];
+echo "<div class='container mt-5'>";
 
-    }
-    
-    $cons = "DELETE FROM usuario WHERE id='$id'";
+if ($conexion != NULL) {
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        
+        $cons = "DELETE FROM usuario WHERE id='$id'";
+        $respuesta = mysqli_query($conexion, $cons);
 
-    $respuesta= mysqli_query($conexion,$cons);
-
-    if($respuesta){
-        print " 
-        <div class='centrado'>
-            <h1 class='mt25px'>El usuario <strong>ID:$id</strong> fue eliminado</h1>
+        if ($respuesta) {
+            echo "
+            <div class='card'>
+                <div class='card-header text-center bg-success text-white'>
+                    <h2>Éxito</h2>
+                </div>
+                <div class='card-body text-center'>
+                    <p>El usuario <strong>ID: $id</strong> fue eliminado correctamente.</p>
+                    <a href='usuarios.php' class='btn btn-primary mt-3'>Volver al Inicio</a>
+                </div>
+            </div>
+            ";
+        } else {
+            echo "
+            <div class='card'>
+                <div class='card-header text-center bg-danger text-white'>
+                    <h2>Error</h2>
+                </div>
+                <div class='card-body text-center'>
+                    <p>Error al eliminar el usuario: " . mysqli_error($conexion) . "</p>
+                    <a href='usuarios.php' class='btn btn-primary mt-3'>Volver al Inicio</a>
+                </div>
+            </div>
+            ";
+        }
+    } else {
+        echo "
+        <div class='card'>
+            <div class='card-header text-center bg-warning text-white'>
+                <h2>Advertencia</h2>
+            </div>
+            <div class='card-body text-center'>
+                <p>ID de usuario no especificado.</p>
+                <a href='usuarios.php' class='btn btn-primary mt-3'>Volver al Inicio</a>
+            </div>
         </div>
-        <div class='centrado'>
-            <a href=index.php class='bap mb20px vbap mt25px'>Volver</a>
-        </div>  
         ";
     }
+} else {
+    echo "
+    <div class='card'>
+        <div class='card-header text-center bg-danger text-white'>
+            <h2>Error</h2>
+        </div>
+        <div class='card-body text-center'>
+            <p>Error de conexión a la base de datos.</p>
+            <a href='usuarios.php' class='btn btn-primary mt-3'>Volver al Inicio</a>
+        </div>
+    </div>
+    ";
 }
-include_once("footerpanel.php")
+
+echo "</div>"; // Cierra el contenedor
+
+include_once("footerpanel.php");
 ?>

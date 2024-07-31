@@ -1,133 +1,98 @@
 <?php
 require_once("../registros/admin.php");
 require_once("../conexion.php");
-print "
-<div class='mx-auto mb-5' style='max-width: 600px;'>
-    <div class='card-body'>";
-if($conexion != NULL){
-    if(isset($_GET['id'])){
 
-        $id=$_GET['id'];
+$modificacion_exitosa = false;
+$mensajes = "";
 
+if ($conexion != NULL) {
+    if (isset($_POST['id'])) {
+        $id = $_POST['id'];
     }
 
-    
-    if(isset($_GET['nombre'])){
-
-        $nuevonombre=$_GET['nombre'];
-    }
-    $cons= "UPDATE producto SET nombre='$nuevonombre' WHERE id='$id' "; 
-    $respuesta= mysqli_query($conexion,$cons);
-    if($respuesta){
-        print "     
-        <div class='centrado'>
-            <p>El nombre fue modificado por:</p>
-        </div>
-        <div class='centrado'>
-            <p><strong>$nuevonombre</strong></p>
-        </div>
-    "; 
-    }
-
-    if(isset($_GET['desc'])){
-
-        $nuevadesc=$_GET['desc'];
-    }
-    $cons= "UPDATE producto SET descripcion='$nuevadesc' WHERE id='$id' "; 
-    $respuesta= mysqli_query($conexion,$cons);
-    if($respuesta){
-        print "     
-        <div class='centrado'>
-            <p>La descripción fue modificada por:</p>
-        </div>
-        <div class='centrado'>
-            <p><strong>$nuevadesc</strong></p>
-        </div>
-    "; 
-    }
-
-
-    if(isset($_GET['color'])){
-
-        $nuevocolor=$_GET['color'];
-    }
-    $cons= "UPDATE producto SET color='$nuevocolor' WHERE id='$id' "; 
-    $respuesta= mysqli_query($conexion,$cons);
-    if($respuesta){
-        print "  
-        <div class='centrado'>
-            <p>El color fue modificado por:</p>
-        </div>
-        <div class='centrado'>
-            <p><strong>$nuevocolor</strong></p>
-        </div>
-        ";
-    }
-
-
-    if(isset($_GET['pre'])){
-
-        $nuevoprecio=$_GET['pre'];
-    }
-    $cons= "UPDATE producto SET precio='$nuevoprecio' WHERE id='$id' "; 
-    $respuesta= mysqli_query($conexion,$cons);
-    if($respuesta){
-        print " 
-        <div class='centrado'>
-            <p>El precio fue modificado por:</p>
-        </div>
-        <div class='centrado'>
-            <p><strong>$nuevoprecio</strong></p>
-        </div>
-        ";
-    }
-
-    if(isset($_GET['cat'])){
-
-        $nuevacat=$_GET['cat'];
-    }
-    $cons= "UPDATE producto SET categoria_id='$nuevacat' WHERE id='$id' "; 
-    $respuesta= mysqli_query($conexion,$cons);
-    if($respuesta){
-        if($nuevacat==1){
-            $nuevacat='Teléfono celular';
-        } else if ($nuevacat==2){
-            $nuevacat='Reloj';
+    if (isset($_POST['nombre'])) {
+        $nuevonombre = $_POST['nombre'];
+        $cons = "UPDATE producto SET nombre='$nuevonombre' WHERE id='$id'";
+        $respuesta = mysqli_query($conexion, $cons);
+        if ($respuesta) {
+            $modificacion_exitosa = true;
+            $mensajes .= "<p>El nombre fue modificado por: <strong>$nuevonombre</strong></p>";
         }
-        print "  
-        <div class='centrado'>
-            <p>La categoría fue modificada por:</p>
-        </div>
-        <div class='centrado'>
-            <p><strong>$nuevacat</strong></p>
-        </div>
-        ";
     }
 
-    if(isset($_GET['arch'])){
-        $nuevaimg=$_GET['arch'];
+    if (isset($_POST['desc'])) {
+        $nuevadesc = $_POST['desc'];
+        $cons = "UPDATE producto SET descripcion='$nuevadesc' WHERE id='$id'";
+        $respuesta = mysqli_query($conexion, $cons);
+        if ($respuesta) {
+            $modificacion_exitosa = true;
+            $mensajes .= "<p>La descripción fue modificada por: <strong>$nuevadesc</strong></p>";
+        }
     }
-    $cons= "UPDATE producto SET foto='$nuevaimg' WHERE id='$id' "; 
-    $respuesta= mysqli_query($conexion,$cons);
-    if($respuesta){
-        print " 
-        <div class='centrado'>
+
+    if (isset($_POST['color'])) {
+        $nuevocolor = $_POST['color'];
+        $cons = "UPDATE producto SET color='$nuevocolor' WHERE id='$id'";
+        $respuesta = mysqli_query($conexion, $cons);
+        if ($respuesta) {
+            $modificacion_exitosa = true;
+            $mensajes .= "<p>El color fue modificado por: <strong>$nuevocolor</strong></p>";
+        }
+    }
+
+    if (isset($_POST['pre'])) {
+        $nuevoprecio = $_POST['pre'];
+        $cons = "UPDATE producto SET precio='$nuevoprecio' WHERE id='$id'";
+        $respuesta = mysqli_query($conexion, $cons);
+        if ($respuesta) {
+            $modificacion_exitosa = true;
+            $mensajes .= "<p>El precio fue modificado por: <strong>$nuevoprecio</strong></p>";
+        }
+    }
+
+    if (isset($_POST['cat'])) {
+        $nuevacat = $_POST['cat'];
+        $cons = "UPDATE producto SET categoria_id='$nuevacat' WHERE id='$id'";
+        $respuesta = mysqli_query($conexion, $cons);
+        if ($respuesta) {
+            $modificacion_exitosa = true;
+            $categoriaTexto = $nuevacat == 1 ? 'Teléfono celular' : 'Reloj';
+            $mensajes .= "<p>La categoría fue modificada por: <strong>$categoriaTexto</strong></p>";
+        }
+    }
+
+    if (isset($_FILES['arch']) && $_FILES['arch']['error'] == UPLOAD_ERR_OK) {
+        $hora = time();
+        $foto = $hora . '.jpg';
+        move_uploaded_file($_FILES['arch']['tmp_name'], "../imgbbdd/$foto");
+        
+        $cons = "UPDATE producto SET foto='$foto' WHERE id='$id'";
+        $respuesta = mysqli_query($conexion, $cons);
+        if ($respuesta) {
+            $modificacion_exitosa = true;
+            $mensajes .= "
             <p>La foto fue modificada por:</p>
-        </div>
-        <div class='centrado'>
-            <img src='../imgbbdd/$nuevaimg' width=300 heigth=300>
-        </div>
-        ";
+            <img src='../imgbbdd/$foto' class='img-fluid' style='max-width: 300px; height: auto;'>";
+        }
     }
 
-    print "
-        <div class='centrado'>
-            <a href=index.php class='bap mb20px vbap mt25px'>Volver</a>
-        </div>
-        ";  
+    if ($modificacion_exitosa) {
+        print "
+        <div class='container mt-5'>
+            <div class='card'>
+                <div class='card-header text-center bg-success text-white'>
+                    <h1><strong>Modificación Exitosa</strong></h1>
+                </div>
+                <div class='card-body text-center'>
+                    $mensajes
+                    <div class='text-center mt-4'>
+                        <a href='index.php' class='btn btn-primary'>Volver</a>
+                    </div>
+                </div>
+            </div>
+        </div>";
+    }
 }
-print "
-</div>
-    </div>";
-include_once("footerpanel.php")
+
+include_once("../footer.php");
 ?>
