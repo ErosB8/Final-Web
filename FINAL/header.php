@@ -46,7 +46,8 @@
                 <?php
                     if ($usuario) {
                         echo "
-                            <a class='nav-link' href='carrito.php'>Carrito</a>
+                        
+                            <a class='nav-link' href='carrito.php'><img src='img/carrito.png' alt='Carrito' height='55'></a>
                             <a class='nav-link' href='registros/logout.php'>Cerrar sesión</a>
                             
                         ";

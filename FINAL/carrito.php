@@ -28,7 +28,7 @@ require_once("conexion.php");
                                 <div class='card-body mismo-alto'>
                                     <h5 class='card-title centrado'>{$fila['nombre']}</h5>
                                     <p class='card-text centrado'><strong>Cantidad:</strong> {$fila['cantidad']}</p>
-                                    <p class='card-text centrado'><strong>Total:</strong> $ {$fila['total_carrito']}</p>
+                                    <p class='card-text centrado'><strong>Precio unitario:</strong> $ {$fila['total_carrito']}</p>
                                     <form class='boton-eliminar' action='eliminarproducto.php' method='POST'>
                                         <input type='hidden' name='carrito_id' value='{$fila['carrito_id']}'>
                                         <button type='submit' class='btn btn-danger'>Eliminar</button>
@@ -47,24 +47,22 @@ require_once("conexion.php");
             }
 
             echo "
-            <div class='fixed-bottom'>
-                <div class='container'>
-                    <div class='row justify-content-center'>
-                        <div class='col-auto'>
-                            <form class='boton-vaciar-carrito' action='vaciarcarrito.php' method='POST'>
-                                <button type='submit' class='btn btn-warning mx-2'>Vaciar Carrito</button>
-                            </form>
-                        </div>
-                        <div class='col-auto'>
-                            <form class='boton-seguir-comprando' action='productos.php' method='POST'>
-                                <button type='submit' class='btn btn-secondary mx-2'>Seguir Comprando</button>
-                            </form>
-                        </div>
-                        <div class='col-auto'>
-                            <form class='boton-comprar' action='productos.php' method='POST'>
-                                <button type='submit' class='btn btn-primary mx-2'>Pagar</button>
-                            </form>
-                        </div>
+            <div class='container mb-5'>
+                <div class='row justify-content-center'>
+                    <div class='col-auto'>
+                        <form class='boton-vaciar-carrito' action='vaciarcarrito.php' method='POST'>
+                            <button type='submit' class='btn btn-warning mx-2'>Vaciar Carrito</button>
+                        </form>
+                    </div>
+                    <div class='col-auto'>
+                        <form class='boton-seguir-comprando' action='productos.php' method='POST'>
+                            <button type='submit' class='btn btn-secondary mx-2'>Seguir Comprando</button>
+                        </form>
+                    </div>
+                    <div class='col-auto'>
+                        <form class='boton-comprar' action='productos.php' method='POST'>
+                            <button type='submit' class='btn btn-primary mx-2'>Pagar</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -77,3 +75,6 @@ require_once("conexion.php");
     </div>
 </main>
 
+<?php
+    include_once("panel/footerpanel.php")
+?>
