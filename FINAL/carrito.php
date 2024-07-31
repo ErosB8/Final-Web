@@ -15,8 +15,11 @@ require_once("conexion.php");
                         JOIN producto ON carrito.id_producto = producto.id";
             $respuesta = mysqli_query($conexion, $consulta);
 
+            $hay_productos = false;
+
             if ($respuesta) {
                 if (mysqli_num_rows($respuesta) > 0) {
+                    $hay_productos = true;
                     echo "<div class='row'>";
                     while ($fila = mysqli_fetch_array($respuesta)) {
                         echo "
@@ -60,8 +63,8 @@ require_once("conexion.php");
                         </form>
                     </div>
                     <div class='col-auto'>
-                        <form class='boton-comprar' action='productos.php' method='POST'>
-                            <button type='submit' class='btn btn-primary mx-2'>Pagar</button>
+                        <form class='boton-comprar' action='pagar.php' method='POST'>
+                            <button type='submit' class='btn btn-primary mx-2' ".($hay_productos ? "" : "disabled").">Pagar</button>
                         </form>
                     </div>
                 </div>
@@ -76,5 +79,5 @@ require_once("conexion.php");
 </main>
 
 <?php
-    include_once("panel/footerpanel.php")
+include_once("panel/footerpanel.php")
 ?>
